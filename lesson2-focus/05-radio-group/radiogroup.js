@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-
   // Define values for keycodes
   var VK_ENTER      = 13;
   var VK_SPACE      = 32;

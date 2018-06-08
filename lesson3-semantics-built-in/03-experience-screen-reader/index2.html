@@ -3,17 +3,13 @@
   <head>
     <meta charset="utf-8">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous"></script>
-
-    <title>Experiencing a screen reader</title>
+    <title>Introducing ChromeVox Lite</title>
     <meta name="description" content="A basic form with ChromeVox Lite">
 
     <!-- Mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-      iframe#content {
+      iframe#contact {
           position: fixed;
           top: 0;
           left: 0;
@@ -26,14 +22,12 @@
     </style>
   </head>
   <body>
-    <iframe id="content" src="iframer.html"></iframe>
+    <iframe id="pageToLoad" src="file:///Users/blendrix/Documents/GitHub/a11y-demos/lesson3-semantics-built-in/16-labelling-input-elements/flight-booking.html"></iframe>
     <script>
-
       function injectChromeVox(frame) {
         var templates = document.querySelectorAll('template');
         var frameHead = frame.contentDocument.head;
         var frameBody = frame.contentDocument.body;
-        // frameBody.appendChild(addToTarget);
 
         var i = 0;
         function appendNext() {
@@ -63,9 +57,8 @@
         }
         appendNext();
       }
-      var frame = document.getElementById('content');
+      var frame = document.getElementById('pageToLoad');
       frame.addEventListener('load', injectChromeVox.bind(null, frame));
-
     </script>
 
     <template class="head">
@@ -119,6 +112,8 @@
         window.saveAudio = window.Audio;
         window.Audio = function() {};
 
+        // blur out the page content
+        // document.querySelector('.wrapper').classList.add('blur');
       </script>
     </template>
 
